@@ -13,6 +13,8 @@ public class Animation {
     public Animation(BufferedImage[] frames) {
         timesPlayed = 0;
         setFrames(frames);
+
+        stop();
     }
 
     public Animation() {
@@ -42,6 +44,10 @@ public class Animation {
             currentFrame = 0;
             timesPlayed++;
         }
+    }
+
+    public void stop() {
+        setDelay(-1);
     }
 
     public BufferedImage[] getFrames() {

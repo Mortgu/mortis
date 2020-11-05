@@ -17,9 +17,6 @@ public class Effect extends AnimationObject {
     @Override
     public void render(Graphics2D g) {
         g.drawImage(animation.getImage(), (int) (position.x), (int) (position.y), size, size, null);
-
-        g.setColor(Color.RED);
-        g.drawRect((int) position.x, (int) position.y, size, size);
     }
 
 

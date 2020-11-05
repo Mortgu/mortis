@@ -24,8 +24,7 @@ public abstract class Entity {
 
         animation = new Animation();
 
-        // -1 = NO ANIMATION
-        setAnimation(RIGHT, sprite.getSpriteArray(RIGHT), 60);
+        setAnimation(RIGHT, sprite.getSpriteArray(DOWN), 60);
     }
 
     public void setAnimation(int i, BufferedImage[] frames, int delay) {

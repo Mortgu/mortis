@@ -14,7 +14,7 @@ public abstract class AnimationObject {
     protected Vector2f position;
     protected int size, delay;
 
-    public static boolean play;
+    public static boolean play = true;
 
     public AnimationObject(Sprite sprite, Vector2f position, int size, int delay) {
         this.sprite = sprite;
@@ -36,14 +36,26 @@ public abstract class AnimationObject {
 
     private void animate() {
         if(play) {
-            setAnimation(0, sprite.getSpriteArray(0), 0);
+            if(currentAnimation != 0 || animation.getDelay() == -1) {
+                setAnimation(0, sprite.getSpriteArray(0), 10);
+            }
         } else {
             setAnimation(currentAnimation, sprite.getSpriteArray(currentAnimation), -1);
         }
     }
 
+    public void stop() {
+        if(animation.getCurrentFrame() == animation.getNumFrame() - 1) {
+            play = false;
+        }
+    }
+
     public void update() {
+        animate();
+
         animation.update();
+
+        stop();
     }
 
     public abstract void render(Graphics2D g);
@@ -54,5 +66,53 @@ public abstract class AnimationObject {
 
     public void setDelay(int delay) {
         this.delay = delay;
+    }
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
+    }
+
+    public int getCurrentAnimation() {
+        return currentAnimation;
+    }
+
+    public void setCurrentAnimation(int currentAnimation) {
+        this.currentAnimation = currentAnimation;
+    }
+
+    public Animation getAnimation() {
+        return animation;
+    }
+
+    public void setAnimation(Animation animation) {
+        this.animation = animation;
+    }
+
+    public Vector2f getPosition() {
+        return position;
+    }
+
+    public void setPosition(Vector2f position) {
+        this.position = position;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public static boolean isPlay() {
+        return play;
+    }
+
+    public static void setPlay(boolean play) {
+        AnimationObject.play = play;
     }
 }
