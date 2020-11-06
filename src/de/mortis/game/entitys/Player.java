@@ -7,6 +7,8 @@ import java.awt.*;
 
 public class Player extends Entity {
 
+    public static int HEALTH = 80, CURRENT_HEALTH = 100;
+
     public Player(Sprite sprite, Vector2f position, int size) {
         super(sprite, position, size);
     }
@@ -20,4 +22,19 @@ public class Player extends Entity {
         graphics.drawImage(animation.getImage(), (int) (position.x), (int) (position.y), size, size, null);
     }
 
+    public static int getHEALTH() {
+        return HEALTH;
+    }
+
+    public static void setHEALTH(int HEALTH) {
+        Player.HEALTH = HEALTH;
+    }
+
+    public static int getCurrentHealth() {
+        return CURRENT_HEALTH;
+    }
+
+    public static void setCurrentHealth(int currentHealth) {
+        CURRENT_HEALTH = currentHealth;
+    }
 }
