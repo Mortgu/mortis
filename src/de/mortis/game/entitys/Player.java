@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Player extends Entity {
 
-    public static int HEALTH = 100, CURRENT_HEALTH = 80;
+    public static int HEALTH = 100, CURRENT_HEALTH = 100;
 
     public Player(Sprite sprite, Vector2f position, int size) {
         super(sprite, position, size);
@@ -16,6 +16,8 @@ public class Player extends Entity {
     public void update() {
         super.update();
     }
+
+    // TODO: Fix Player Animation
 
     @Override
     public void render(Graphics2D graphics) {

@@ -22,14 +22,19 @@ public class Start extends GameStates {
     public static Effect effect;
 
     public static Sprite EXPLOSIVE_SPRITE;
-    private static Sprite RIGHT_UI_ELEMENT, HEALTH_BAR;
+    private static Sprite RIGHT_UI_ELEMENT;
+    private static Sprite HEALTH_BAR;
 
     private static BufferedImage image;
+
+    // LIVE BAR
+    public static int BAR_WIDTH = 225, BAR_X = 60;
+    public static int BAR_END = BAR_X + BAR_WIDTH;
 
     @Override
     public void start() {
 
-        player = new Player(new Sprite("entity/player.png", 32), new Vector2f((float) (Window.width / 2) - 50, (float) (Window.height / 2) - 50), 100);
+        player = new Player(new Sprite("entity/player.png", 32), new Vector2f((float) (Window.width / 2) - 72, (float) (Window.height / 2) - 72), 100);
         font = new Font("font/font.png", 10, 10);
 
         EXPLOSIVE_SPRITE = new Sprite("effects/explosion.png", 64);
@@ -49,13 +54,11 @@ public class Start extends GameStates {
 
     }
 
-    // LIVE BAR
-    public static int BAR_WIDTH = 225, BAR_X = 60;
-    public static int BAR_END = BAR_X + BAR_WIDTH;
-
     @Override
     public void render(Graphics2D g) {
         effect.render(g);
+
+        player.render(g);
 
         // HEALTH PROGRESSBAR
 
@@ -69,14 +72,25 @@ public class Start extends GameStates {
         g.drawImage(HEALTH_BAR.getSpriteSheet(), 20, 20, 58 * 5, 10 * 5, null);
         g.drawImage(RIGHT_UI_ELEMENT.getSpriteSheet(), Window.width - (58*5) - 20, 20, 58 * 5, 10 * 5, null);
 
-        Sprite.drawArray(g, font, "HALLO", new Vector2f(Window.width - 190, 30), 25, 25, 17, 0);
+        Sprite.drawArray(g, font, "TEST", new Vector2f(Window.width / 2 - 60, 40), 26, 26, 19, 0);
+
+        // SPLASH SCREEN
+        //Sprite.drawArray(g, font, "MORTIS PRESENT", new Vector2f(Window.width / 2 - (5*45), 220), 45, 45, 33, 0);
+        //Sprite.drawArray(g, font, "PIXLE RPG", new Vector2f(Window.width / 2 - (2*45) - 20, 280), 30, 30, 22, 0);
     }
 
     @Override
     public void update() {
         effect.update();
+        player.update();
 
-        Start.BAR_WIDTH = (int) Math.round(new Health().calculatePercentage(Player.CURRENT_HEALTH, Player.HEALTH) * 2);
+        //for(int i = 0; i < gameObjects.size(); i++) {
+        //    if(gameObjects.get(i).getPosition().y >= gameObjects.get(i).getPosition().y) {
+        //        System.out.println("" + i);
+        //    }
+        //}
+
+        Start.BAR_WIDTH = (int) Math.round(new Health().calculatePercentage(Player.CURRENT_HEALTH, Player.HEALTH) * 2 + 25);
         Start.BAR_END = Start.BAR_X + Start.BAR_WIDTH;
     }
 
