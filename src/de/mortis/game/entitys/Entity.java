@@ -1,34 +1,37 @@
 package de.mortis.game.entitys;
 
-import de.mortis.game.graphics.Animation;
 import de.mortis.game.graphics.Sprite;
+import de.mortis.game.graphics.animation.Animation;
+import de.mortis.game.util.Object;
 import de.mortis.game.util.Vector2f;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class Entity {
+public abstract class Entity extends Object {
 
     protected Animation animation;
     protected Sprite sprite;
     protected Vector2f position;
-    protected int size;
+    protected int size, currentAnimation;
+    protected Object object;
 
     // TODO: ADD KEY FUNCTIONS
-    private final int DOWN = 2, LEFT = 1, RIGHT = 0, UP = 3;
 
     public Entity(Sprite sprite, Vector2f position, int size) {
+        super(position, size, size);
+
         this.sprite = sprite;
         this.position = position;
         this.size = size;
 
         animation = new Animation();
 
-        // -1 = NO ANIMATION
-        setAnimation(RIGHT, sprite.getSpriteArray(RIGHT), 60);
+        setAnimation(2, sprite.getSpriteArray(2), -1);
     }
 
     public void setAnimation(int i, BufferedImage[] frames, int delay) {
+        currentAnimation = i;
         animation.setFrames(frames);
         animation.setDelay(delay);
     }
@@ -37,7 +40,7 @@ public abstract class Entity {
         animation.update();
     }
 
-    public abstract void render(Graphics2D g);
+    public void render(Graphics2D g) {object.render(g);}
 
     public Animation getAnimation() {
         return animation;

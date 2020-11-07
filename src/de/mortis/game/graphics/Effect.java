@@ -1,5 +1,6 @@
 package de.mortis.game.graphics;
 
+import de.mortis.game.graphics.animation.AnimationObject;
 import de.mortis.game.util.Vector2f;
 
 import java.awt.*;
@@ -17,9 +18,6 @@ public class Effect extends AnimationObject {
     @Override
     public void render(Graphics2D g) {
         g.drawImage(animation.getImage(), (int) (position.x), (int) (position.y), size, size, null);
-
-        g.setColor(Color.RED);
-        g.drawRect((int) position.x, (int) position.y, size, size);
     }
 
 

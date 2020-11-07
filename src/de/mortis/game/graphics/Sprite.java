@@ -1,7 +1,12 @@
 package de.mortis.game.graphics;
 
+import de.mortis.game.graphics.font.Font;
+import de.mortis.game.util.Vector2f;
+
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -55,6 +60,20 @@ public class Sprite {
             for(int x = 0; x < wSprite; x++) {
                 spriteArray[y][x] = getSprite(x, y);
             }
+        }
+    }
+
+    public static void drawArray(Graphics2D g, Font font, String word, Vector2f pos, int width, int height, int xOffset, int yOffset) {
+        float x = pos.x;
+        float y = pos.y;
+
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != 32) {
+                g.drawImage(font.getFont(word.charAt(i)), (int) x, (int) y, width, height, null);
+            }
+
+            x += xOffset;
+            y += yOffset;
         }
     }
 

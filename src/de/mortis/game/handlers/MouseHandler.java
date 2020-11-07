@@ -1,6 +1,9 @@
 package de.mortis.game.handlers;
 
 import de.mortis.game.GamePanel;
+import de.mortis.game.graphics.animation.AnimationObject;
+import de.mortis.game.manager.states.Start;
+import de.mortis.game.util.Vector2f;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -19,7 +22,10 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if(!AnimationObject.play) {
+            Start.effect.setPosition(new Vector2f(e.getX() - (int) (Start.effect.getSize() / 2), e.getY() - (int) (Start.effect.getSize() / 2)));
+        }
+        AnimationObject.play = true;
     }
 
     @Override
