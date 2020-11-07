@@ -20,12 +20,12 @@ public class Run extends GameStates {
 
     @Override
     public void render(Graphics2D g) {
-        Start.effect.render(g);
+
     }
 
     @Override
     public void update() {
-        Start.effect.update();
+
     }
 
     @Override

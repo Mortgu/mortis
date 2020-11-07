@@ -1,5 +1,6 @@
 package de.mortis.game.graphics;
 
+import de.mortis.game.graphics.animation.AnimationObject;
 import de.mortis.game.util.Vector2f;
 
 import java.awt.*;

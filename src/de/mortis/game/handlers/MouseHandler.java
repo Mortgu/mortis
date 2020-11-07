@@ -1,7 +1,7 @@
 package de.mortis.game.handlers;
 
 import de.mortis.game.GamePanel;
-import de.mortis.game.graphics.AnimationObject;
+import de.mortis.game.graphics.animation.AnimationObject;
 import de.mortis.game.manager.states.Start;
 import de.mortis.game.util.Vector2f;
 

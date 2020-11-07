@@ -1,4 +1,4 @@
-package de.mortis.game.graphics;
+package de.mortis.game.graphics.animation;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;

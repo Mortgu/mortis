@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Player extends Entity {
 
-    public static int HEALTH = 80, CURRENT_HEALTH = 100;
+    public static int HEALTH = 100, CURRENT_HEALTH = 80;
 
     public Player(Sprite sprite, Vector2f position, int size) {
         super(sprite, position, size);

@@ -1,5 +1,6 @@
-package de.mortis.game.graphics;
+package de.mortis.game.graphics.animation;
 
+import de.mortis.game.graphics.Sprite;
 import de.mortis.game.util.Vector2f;
 
 import java.awt.*;

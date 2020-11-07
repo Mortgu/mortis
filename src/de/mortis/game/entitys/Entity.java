@@ -1,6 +1,6 @@
 package de.mortis.game.entitys;
 
-import de.mortis.game.graphics.Animation;
+import de.mortis.game.graphics.animation.Animation;
 import de.mortis.game.graphics.Sprite;
 import de.mortis.game.util.Vector2f;
 

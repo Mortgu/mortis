@@ -32,15 +32,21 @@ public class GameStateManager {
     }
 
     public void render(Graphics2D g) {
-        getCurrentGameState().render(g);
+        for(GameStates gameStates : gameStates) {
+            gameStates.render(g);
+        }
     }
 
     public void input(KeyHandler keyHandler, MouseHandler mouseHandler) {
-        getCurrentGameState().input(keyHandler, mouseHandler);
+        for(GameStates gameStates : gameStates) {
+            gameStates.input(keyHandler, mouseHandler);
+        }
     }
 
     public void update() {
-        Main.getGameStateManager().getCurrentGameState().update();
+        for(GameStates gameStates : gameStates) {
+            gameStates.update();
+        }
     }
 
     public Main getMain() {
