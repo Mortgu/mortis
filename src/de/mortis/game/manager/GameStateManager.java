@@ -7,7 +7,7 @@ import de.mortis.game.manager.states.End;
 import de.mortis.game.manager.states.Run;
 import de.mortis.game.manager.states.Start;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 public class GameStateManager {
 
@@ -31,22 +31,23 @@ public class GameStateManager {
         currentGameState.start();
     }
 
-    public void render(Graphics2D g) {
-        for(GameStates gameStates : gameStates) {
-            gameStates.render(g);
+    public void stopCurrentGameState() {
+        if(currentGameState != null) {
+            currentGameState.stop();
+            currentGameState = null;
         }
+    }
+
+    public void render(Graphics2D g) {
+        Main.getGameStateManager().getCurrentGameState().render(g);
     }
 
     public void input(KeyHandler keyHandler, MouseHandler mouseHandler) {
-        for(GameStates gameStates : gameStates) {
-            gameStates.input(keyHandler, mouseHandler);
-        }
+        Main.getGameStateManager().getCurrentGameState().input(keyHandler, mouseHandler);
     }
 
     public void update() {
-        for(GameStates gameStates : gameStates) {
-            gameStates.update();
-        }
+        Main.getGameStateManager().getCurrentGameState().update();
     }
 
     public Main getMain() {

@@ -4,13 +4,13 @@ import de.mortis.game.handlers.KeyHandler;
 import de.mortis.game.handlers.MouseHandler;
 import de.mortis.game.manager.GameStates;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 public class End extends GameStates {
 
     @Override
     public void start() {
-        
+
     }
 
     @Override

@@ -3,7 +3,7 @@ package de.mortis.game.manager;
 import de.mortis.game.handlers.KeyHandler;
 import de.mortis.game.handlers.MouseHandler;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 public abstract class GameStates {
 

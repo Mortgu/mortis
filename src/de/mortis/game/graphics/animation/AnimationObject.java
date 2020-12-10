@@ -3,7 +3,7 @@ package de.mortis.game.graphics.animation;
 import de.mortis.game.graphics.Sprite;
 import de.mortis.game.util.Vector2f;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public abstract class AnimationObject {

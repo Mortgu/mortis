@@ -3,7 +3,7 @@ package de.mortis.game.graphics;
 import de.mortis.game.graphics.animation.AnimationObject;
 import de.mortis.game.util.Vector2f;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 
 public class Effect extends AnimationObject {
 
@@ -19,6 +19,4 @@ public class Effect extends AnimationObject {
     public void render(Graphics2D g) {
         g.drawImage(animation.getImage(), (int) (position.x), (int) (position.y), size, size, null);
     }
-
-
 }

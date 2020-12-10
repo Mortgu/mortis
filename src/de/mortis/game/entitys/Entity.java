@@ -16,7 +16,8 @@ public abstract class Entity extends Object {
     protected int size, currentAnimation;
     protected Object object;
 
-    // TODO: ADD KEY FUNCTIONS
+    public static boolean up, down, right, left, attack;
+    protected float dx, dy, maxSpeed = 0.5f, acc = 1f, deacc = 1f;
 
     public Entity(Sprite sprite, Vector2f position, int size) {
         super(position, size, size);
@@ -27,7 +28,7 @@ public abstract class Entity extends Object {
 
         animation = new Animation();
 
-        setAnimation(2, sprite.getSpriteArray(2), -1);
+        setAnimation(2, sprite.getSpriteArray(2), 30);
     }
 
     public void setAnimation(int i, BufferedImage[] frames, int delay) {
@@ -36,7 +37,35 @@ public abstract class Entity extends Object {
         animation.setDelay(delay);
     }
 
+    public void animate() {
+        if(up) {
+            int UP = 3;
+            if(currentAnimation != UP || animation.getDelay() == -1) {
+                setAnimation(UP, sprite.getSpriteArray(UP), 30);
+            }
+        } else if(down) {
+            int DOWN = 2;
+            if(currentAnimation != DOWN || animation.getDelay() == -1) {
+                setAnimation(DOWN, sprite.getSpriteArray(DOWN), 30);
+            }
+        } else if(left) {
+            int LEFT = 1;
+            if(currentAnimation != LEFT || animation.getDelay() == -1) {
+                setAnimation(LEFT, sprite.getSpriteArray(LEFT), 30);
+            }
+        } else if(right) {
+            int RIGHT = 0;
+            if(currentAnimation != RIGHT || animation.getDelay() == -1) {
+                setAnimation(RIGHT, sprite.getSpriteArray(RIGHT), 30);
+            }
+        } else {
+            setAnimation(currentAnimation, sprite.getSpriteArray(currentAnimation), -1);
+        }
+    }
+
     public void update() {
+        animate();
+
         animation.update();
     }
 

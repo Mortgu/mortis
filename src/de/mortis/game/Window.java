@@ -1,10 +1,10 @@
 package de.mortis.game;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 public class Window extends JFrame {
 
-    public static int width = 1000, height = 600;
+    public static int width = 1280, height = 720;
 
     public Window() {
         setTitle("Space Game");
