@@ -5,11 +5,10 @@ import de.mortis.game.manager.GameStates;
 
 public class Main {
 
-    private static Main main;
     private static GameStateManager gameStateManager;
 
     public static void main(String[] args) {
-        gameStateManager = new GameStateManager(main);
+        gameStateManager = new GameStateManager();
         gameStateManager.setGameState(GameStates.START);
 
         new Window();

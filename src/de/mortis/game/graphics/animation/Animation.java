@@ -1,7 +1,6 @@
 package de.mortis.game.graphics.animation;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 
 public class Animation {
 

@@ -1,6 +1,5 @@
 package de.mortis.game.manager;
 
-import de.mortis.game.Main;
 import de.mortis.game.handlers.KeyHandler;
 import de.mortis.game.handlers.MouseHandler;
 import de.mortis.game.manager.states.End;
@@ -11,12 +10,10 @@ import java.awt.*;
 
 public class GameStateManager {
 
-    private Main main;
     private GameStates[] gameStates;
     private GameStates currentGameState;
 
-    public GameStateManager(Main main) {
-        this.main = main;
+    public GameStateManager() {
         gameStates = new GameStates[3];
 
         gameStates[GameStates.START] = new Start();
@@ -47,14 +44,6 @@ public class GameStateManager {
         for(GameStates gameStates : gameStates) {
             gameStates.update();
         }
-    }
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
     }
 
     public GameStates[] getGameStates() {

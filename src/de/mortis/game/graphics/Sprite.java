@@ -4,9 +4,8 @@ import de.mortis.game.graphics.font.Font;
 import de.mortis.game.util.Vector2f;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.util.Objects;
 

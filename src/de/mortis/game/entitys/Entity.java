@@ -5,7 +5,7 @@ import de.mortis.game.graphics.animation.Animation;
 import de.mortis.game.util.Object;
 import de.mortis.game.util.Vector2f;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public abstract class Entity extends Object {
@@ -16,7 +16,9 @@ public abstract class Entity extends Object {
     protected int size, currentAnimation;
     protected Object object;
 
-    // TODO: ADD KEY FUNCTIONS
+    public static boolean up, down, right, left, attack;
+
+    protected float dx, dy, maxSpeed = 0.5f, acc = 1f, deacc = 1f;
 
     public Entity(Sprite sprite, Vector2f position, int size) {
         super(position, size, size);
@@ -40,7 +42,9 @@ public abstract class Entity extends Object {
         animation.update();
     }
 
-    public void render(Graphics2D g) {object.render(g);}
+    public void render(Graphics2D g) {
+        object.render(g);
+    }
 
     public Animation getAnimation() {
         return animation;

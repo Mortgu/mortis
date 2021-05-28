@@ -11,7 +11,7 @@ import de.mortis.game.handlers.MouseHandler;
 import de.mortis.game.manager.GameStates;
 import de.mortis.game.util.Vector2f;
 
-import java.awt.*;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 public class Start extends GameStates {
@@ -73,10 +73,6 @@ public class Start extends GameStates {
         g.drawImage(RIGHT_UI_ELEMENT.getSpriteSheet(), Window.width - (58*5) - 20, 20, 58 * 5, 10 * 5, null);
 
         Sprite.drawArray(g, font, "TEST", new Vector2f(Window.width / 2 - 60, 40), 26, 26, 19, 0);
-
-        // SPLASH SCREEN
-        //Sprite.drawArray(g, font, "MORTIS PRESENT", new Vector2f(Window.width / 2 - (5*45), 220), 45, 45, 33, 0);
-        //Sprite.drawArray(g, font, "PIXLE RPG", new Vector2f(Window.width / 2 - (2*45) - 20, 280), 30, 30, 22, 0);
     }
 
     @Override
@@ -84,18 +80,12 @@ public class Start extends GameStates {
         effect.update();
         player.update();
 
-        //for(int i = 0; i < gameObjects.size(); i++) {
-        //    if(gameObjects.get(i).getPosition().y >= gameObjects.get(i).getPosition().y) {
-        //        System.out.println("" + i);
-        //    }
-        //}
-
         Start.BAR_WIDTH = (int) Math.round(new Health().calculatePercentage(Player.CURRENT_HEALTH, Player.HEALTH) * 2 + 25);
         Start.BAR_END = Start.BAR_X + Start.BAR_WIDTH;
     }
 
     @Override
     public void input(KeyHandler keyHandler, MouseHandler mouseHandler) {
-
+        player.input(keyHandler, mouseHandler);
     }
 }
